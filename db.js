@@ -13,11 +13,11 @@ const dbName = process.env.PGDATABASE;
 const dbUser = process.env.PGUSER;
 const dbPassword = process.env.PGPASSWORD;
 const dbURL = process.env.PGHOST_UNPOOLED;
-const PORT = process.env.PORT;
+const dbPort = process.env.PGPORT || 5432;
 
 const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbURL,
-  port: PORT,
+  port: dbPort,
   dialect: "postgres",
   logging: false,
   dialectOptions: {
